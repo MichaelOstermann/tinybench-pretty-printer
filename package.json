@@ -1,0 +1,84 @@
+{
+
+    "name": "@monstermann/tinybench-pretty-printer",
+    "type": "module",
+    "version": "0.0.0",
+    "packageManager": "pnpm@9.1.1",
+    "description": "Customizable pretty-printer for tinybench benchmarks",
+    "author": "Michael Ostermann <michaelostermann@me.com>",
+    "license": "MIT",
+    "homepage": "https://github.com/MichaelOstermann/tinybench-pretty-printer#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MichaelOstermann/tinybench-pretty-printer.git"
+    },
+    "bugs": "https://github.com/MichaelOstermann/tinybench-pretty-printer/issues",
+    "keywords": [
+        "ansi",
+        "benchmark",
+        "benchmarks",
+        "cli",
+        "color",
+        "colors",
+        "colour",
+        "console",
+        "format",
+        "formatting",
+        "grid",
+        "markdown",
+        "pretty",
+        "print",
+        "stringify",
+        "style",
+        "styles",
+        "table",
+        "tables",
+        "terminal",
+        "tinybench",
+        "unicode"
+    ],
+    "sideEffects": false,
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
+        }
+    },
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "./dist/**"
+    ],
+    "scripts": {
+        "build": "tsup",
+        "prepublishOnly": "tsup",
+        "lint": "eslint .",
+        "typecheck": "tsc --noEmit",
+        "test": "tsx --test"
+    },
+    "peerDependencies": {
+        "tinybench": "^2.8.0"
+    },
+    "dependencies": {
+        "@monstermann/tables": "^0.0.0",
+        "picocolors": "^1.0.1"
+    },
+    "devDependencies": {
+        "@antfu/eslint-config": "^2.16.4",
+        "@sindresorhus/tsconfig": "^5.0.0",
+        "@types/node": "^20.12.11",
+        "eslint": "^9.1.1",
+        "tinybench": "^2.8.0",
+        "tsup": "^8.0.2",
+        "tsx": "^4.11.0",
+        "typescript": "^5.4.5"
+    },
+    "tsup": {
+        "clean": true,
+        "dts": true,
+        "entry": ["./src/index.ts"],
+        "format": ["esm", "cjs"]
+    }
+}
