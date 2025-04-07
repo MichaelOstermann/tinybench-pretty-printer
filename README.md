@@ -65,7 +65,6 @@ bench.add(Function)
 bench.add(Function)
 bench.add(Function)
 
-await bench.warmup()
 await bench.run()
 ```
 

@@ -1,4 +1,4 @@
-import type Bench from 'tinybench'
+import type { Bench } from 'tinybench'
 import { createTask } from './createTask.js'
 import type { TaskOptions } from './types.js'
 

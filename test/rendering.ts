@@ -1,7 +1,7 @@
 import test, { describe } from 'node:test'
 import process from 'node:process'
 import assert from 'node:assert'
-import type Bench from 'tinybench'
+import type { Bench } from 'tinybench'
 import type { Column } from '../src/index.js'
 import { tinybenchPrinter } from '../src/index.js'
 import { createFailedTask, createInvalidTask, createTask } from '../fixtures/createTask.js'

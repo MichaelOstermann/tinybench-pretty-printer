@@ -1,6 +1,6 @@
 import type { Borders, CreateCliTableConfig, Style } from '@monstermann/tables'
 import { cli, markdown } from '@monstermann/tables'
-import type Bench from 'tinybench'
+import type { Bench } from 'tinybench'
 import type { Column, Columns, DefaultColumn, MarginOptions, NameOptions, OpsOptions, SamplesOptions, SortMethod, SummaryOptions, TaskWithResult, TimeOptions } from './types.js'
 import { name } from './columns/name.js'
 import { summary } from './columns/summary.js'
