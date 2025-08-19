@@ -66,9 +66,9 @@
         "picocolors": "^1.0.1"
     },
     "devDependencies": {
-        "@antfu/eslint-config": "^2.16.4",
-        "@sindresorhus/tsconfig": "^5.0.0",
-        "@types/node": "^20.12.11",
+        "@antfu/eslint-config": "^2.27.3",
+        "@sindresorhus/tsconfig": "^5.1.1",
+        "@types/node": "^20.19.11",
         "eslint": "^9.1.1",
         "tinybench": "^4.0.0",
         "tsup": "^8.0.2",
