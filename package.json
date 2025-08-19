@@ -59,7 +59,7 @@
         "test": "tsx --test"
     },
     "peerDependencies": {
-        "tinybench": "^4.0.0"
+        "tinybench": "^5.0.0"
     },
     "dependencies": {
         "@monstermann/tables": "^0.0.0",
@@ -70,7 +70,7 @@
         "@sindresorhus/tsconfig": "^5.1.1",
         "@types/node": "^20.19.11",
         "eslint": "^9.1.1",
-        "tinybench": "^4.0.0",
+        "tinybench": "^5.0.0",
         "tsup": "^8.0.2",
         "tsx": "^4.11.0",
         "typescript": "^5.4.5"

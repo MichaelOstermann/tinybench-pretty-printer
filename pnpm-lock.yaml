@@ -28,8 +28,8 @@ importers:
         specifier: ^9.1.1
         version: 9.2.0
       tinybench:
-        specifier: ^4.0.0
-        version: 4.0.1
+        specifier: ^5.0.0
+        version: 5.0.0
       tsup:
         specifier: ^8.0.2
         version: 8.0.2(postcss@8.4.38)(typescript@5.4.5)
@@ -2031,9 +2031,9 @@ packages:
   thenify@3.3.1:
     resolution: {integrity: sha512-RVZSIV5IG10Hk3enotrhvz0T9em6cyHBLkH/YAZuKqd8hRkKhSfCGIcP2KUY0EPxndzANBmNllzWPwak+bheSw==}
 
-  tinybench@4.0.1:
-    resolution: {integrity: sha512-Nb1srn7dvzkVx0J5h1vq8f48e3TIcbrS7e/UfAI/cDSef/n8yLh4zsAEsFkfpw6auTY+ZaspEvam/xs8nMnotQ==}
-    engines: {node: '>=18.0.0'}
+  tinybench@5.0.0:
+    resolution: {integrity: sha512-iqp7HhNk6IQXuE5fyJsX4ENpnWcw9k+QS5hsLXZq47J8hH/cL/WjNr6Fr9kXMqCGYMhFSLX8xwoJl6rgB0Pz/A==}
+    engines: {node: '>=20.0.0'}
 
   tinyexec@0.3.2:
     resolution: {integrity: sha512-KQQR9yN7R5+OSwaK0XQoj22pwHoTlgYqmUscPYoknOoWCWfj/5/ABTMRi69FrKU5ffPVh5QcFikpWJI/P1ocHA==}
@@ -4116,7 +4116,7 @@ snapshots:
     dependencies:
       any-promise: 1.3.0
 
-  tinybench@4.0.1: {}
+  tinybench@5.0.0: {}
 
   tinyexec@0.3.2: {}
 
