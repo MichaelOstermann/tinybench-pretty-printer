@@ -2,7 +2,7 @@
 
     "name": "@monstermann/tinybench-pretty-printer",
     "type": "module",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "packageManager": "pnpm@9.1.1",
     "description": "Customizable pretty-printer for tinybench benchmarks",
     "author": "Michael Ostermann <michaelostermann@me.com>",
