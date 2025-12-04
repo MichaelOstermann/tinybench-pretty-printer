@@ -1,63 +1,63 @@
-import type { Alignment, Style } from '@monstermann/tables'
-import type { Task, TaskResult } from 'tinybench'
+import type { Alignment, Style } from "@monstermann/tables"
+import type { Task, TaskResultCompleted } from "tinybench"
 
-export type TaskWithResult = Task & { result: TaskResult }
+export type TaskWithResult = Task & { result: TaskResultCompleted }
 
 export type CountMethod =
-    | 'none'
-    | 'shortest'
-    | 'highest'
-    | 'lowest'
-    | 'mean'
-    | 'thousands'
-    | 'millions'
-    | 'billions'
+    | "none"
+    | "shortest"
+    | "highest"
+    | "lowest"
+    | "mean"
+    | "thousands"
+    | "millions"
+    | "billions"
 
 export type DurationMethod =
-    | 'shortest'
-    | 'highest'
-    | 'lowest'
-    | 'mean'
-    | 'nanoseconds'
-    | 'microseconds'
-    | 'milliseconds'
-    | 'seconds'
+    | "shortest"
+    | "highest"
+    | "lowest"
+    | "mean"
+    | "nanoseconds"
+    | "microseconds"
+    | "milliseconds"
+    | "seconds"
 
 export type SummaryMethod =
-    | 'x'
-    | '%'
+    | "x"
+    | "%"
 
 export type SortMethod =
     | false
-    | 'asc'
-    | 'desc'
+    | "asc"
+    | "desc"
     | ((tasks: TaskWithResult[]) => TaskWithResult[])
 
 export type DefaultColumn =
-    | 'name'
-    | 'summary'
-    | 'ops'
-    | 'time'
-    | 'margin'
-    | 'samples'
+    | "name"
+    | "summary"
+    | "ops"
+    | "time"
+    | "margin"
+    | "samples"
 
 export type ColumnContext = {
+    fastestTask: TaskWithResult
+    locales: Intl.LocalesArgument
+    slowestTask: TaskWithResult
     task: TaskWithResult
     tasks: TaskWithResult[]
-    fastestTask: TaskWithResult
-    slowestTask: TaskWithResult
-    locales: Intl.LocalesArgument
-    formatNumber: (value: number) => string
-    formatDuration: (method: DurationMethod, value: number, values: number[]) => string
     formatCount: (method: CountMethod, value: number, values: number[]) => string
+    formatDuration: (method: DurationMethod, value: number, values: number[]) => string
+    formatNumber: (value: number) => string
 }
 
 export type ColumnOptions = {
     header: string
-    headerStyle: Style[]
     headerAlignment: Alignment
-    rowStyle: Style[]
+    headerStyle: Style[]
     rowAlignment: Alignment
+    rowStyle: Style[]
 }
 
 export type Column = ColumnOptions & {
@@ -67,7 +67,7 @@ export type Column = ColumnOptions & {
 export type Columns<T extends string> = Record<T, Column>
 
 export type NameOptions = Partial<ColumnOptions>
-export type SummaryOptions = Partial<ColumnOptions & { method: SummaryMethod, fastestTitle: string }>
+export type SummaryOptions = Partial<ColumnOptions & { fastestTitle: string, method: SummaryMethod }>
 export type OpsOptions = Partial<ColumnOptions & { method: CountMethod }>
 export type TimeOptions = Partial<ColumnOptions & { method: DurationMethod }>
 export type MarginOptions = Partial<ColumnOptions>

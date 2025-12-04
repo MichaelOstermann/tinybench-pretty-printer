@@ -1,14 +1,14 @@
-import type { Column, MarginOptions } from '../types.js'
+import type { Column, MarginOptions } from "../types.js"
 
 export function margin(options: MarginOptions = {}): Column {
     return {
-        header: options?.header ?? 'margin',
-        headerStyle: options?.headerStyle ?? ['bold'],
-        headerAlignment: options?.headerAlignment ?? 'center',
-        rowAlignment: options?.rowAlignment ?? 'center',
-        rowStyle: options?.rowStyle ?? ['magenta'],
-        content({ task, locales }) {
-            return `±${task.result.rme.toLocaleString(locales, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%`
+        header: options?.header ?? "margin",
+        headerAlignment: options?.headerAlignment ?? "center",
+        headerStyle: options?.headerStyle ?? ["bold"],
+        rowAlignment: options?.rowAlignment ?? "center",
+        rowStyle: options?.rowStyle ?? ["magenta"],
+        content({ locales, task }) {
+            return `±${task.result.throughput.rme.toLocaleString(locales, { maximumFractionDigits: 2, minimumFractionDigits: 2 })}%`
         },
     }
 }

@@ -1,6 +1,6 @@
 export type TaskOptions = Partial<{
-    name: string
-    time: number
     margin: number
+    name: string
     samples: number
+    time: number
 }>

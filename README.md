@@ -57,53 +57,53 @@ pnpm add @monstermann/tinybench-pretty-printer
 # Getting Started
 
 ```ts
-import { Bench } from 'tinybench'
+import { Bench } from "tinybench";
 
-const bench = new Bench()
+const bench = new Bench();
 
-bench.add(Function)
-bench.add(Function)
-bench.add(Function)
+bench.add(Function);
+bench.add(Function);
+bench.add(Function);
 
-await bench.run()
+await bench.run();
 ```
 
 **Using Defaults**
 
 ```ts
-import { tinybenchPrinter } from '@monstermann/tinybench-pretty-printer'
+import { tinybenchPrinter } from "@monstermann/tinybench-pretty-printer";
 
-const cli = tinybenchPrinter.toCli(bench)
-console.log(cli)
+const cli = tinybenchPrinter.toCli(bench);
+console.log(cli);
 ```
 
 ```ts
-import { writeFile } from 'node:fs/promises'
+import { writeFile } from "node:fs/promises";
 
-const markdown = tinybenchPrinter.toMarkdown(bench)
-await writeFile('results.md', markdown)
+const markdown = tinybenchPrinter.toMarkdown(bench);
+await writeFile("results.md", markdown);
 ```
 
 **Using Options**
 
 ```ts
-import { tinybenchPrinter } from '@monstermann/tinybench-pretty-printer'
+import { tinybenchPrinter } from "@monstermann/tinybench-pretty-printer";
 
 const myCustomPrinter = tinybenchPrinter
 
     // Display ops/sec in millions exclusively:
-    .ops({ method: 'millions' })
+    .ops({ method: "millions" })
 
     // Pick a time formatting method based on the mean duration of all benchmarks,
     // and tweak some styling for that column:
     .time({
-        method: 'mean',
-        rowAlignment: ['center'],
-        rowStyle: ['bold'],
+        method: "mean",
+        rowAlignment: ["center"],
+        rowStyle: ["bold"],
     })
 
     // Sort ascending instead of descending:
-    .sort('asc')
+    .sort("asc")
 
     // Decrease the default padding:
     .padding(1)
@@ -112,29 +112,29 @@ const myCustomPrinter = tinybenchPrinter
     .useBorderTop(false)
     .useBorderLeft(false)
     .useBorderRight(false)
-    .useBorderBottom(false)
+    .useBorderBottom(false);
 
-console.log(myCustomPrinter.toCli(bench))
+console.log(myCustomPrinter.toCli(bench));
 ```
 
 ## Configuring Default Columns
 
 ```ts
-import { tinybenchPrinter } from '@monstermann/tinybench-pretty-printer'
+import { tinybenchPrinter } from "@monstermann/tinybench-pretty-printer";
 
 tinybenchPrinter
 
     .name({
         // Change the header title:
-        header: 'name',
+        header: "name",
         // Change the header style:
         // (see https://github.com/alexeyraspopov/picocolors/blob/main/types.ts)
-        headerStyle: ['bold'],
+        headerStyle: ["bold"],
         // Change the header alignment: (left | center | right)
-        headerAlignment: 'center',
+        headerAlignment: "center",
 
         // Change the row alignment: (left | center | right)
-        rowAlignment: 'left',
+        rowAlignment: "left",
         // Change the row style:
         // (see https://github.com/alexeyraspopov/picocolors/blob/main/types.ts)
         rowStyle: [],
@@ -142,147 +142,145 @@ tinybenchPrinter
 
     .summary({
         // Change the column text of the fastest result:
-        fastestTitle: '🥇',
+        fastestTitle: "🥇",
 
         // Display as "10x slower":
-        method: 'x',
+        method: "x",
         // Display as "-90%":
-        method: '%',
+        method: "%",
 
         // Change the header title:
-        header: 'summary',
+        header: "summary",
         // Change the header style:
         // (see https://github.com/alexeyraspopov/picocolors/blob/main/types.ts)
-        headerStyle: ['bold'],
+        headerStyle: ["bold"],
         // Change the header alignment: (left | center | right)
-        headerAlignment: 'center',
+        headerAlignment: "center",
 
         // Change the row alignment: (left | center | right)
-        rowAlignment: 'center',
+        rowAlignment: "center",
         // Change the row style:
         // (see https://github.com/alexeyraspopov/picocolors/blob/main/types.ts)
         rowStyle: [],
-
     })
 
     .ops({
         // Display value as-is:
-        method: 'none',
+        method: "none",
         // Display all rows in thousands, eg. "10K":
-        method: 'thousands',
+        method: "thousands",
         // Display all rows in millions, eg. "10M":
-        method: 'millions',
+        method: "millions",
         // Display all rows in billions, eg. "10B"
-        method: 'billions',
+        method: "billions",
 
         // Choose from the above, favoring the shortest possible option for each row:
-        method: 'shortest',
+        method: "shortest",
         // Chose from the above, based on the highest ops/sec of all benchmarks:
-        method: 'highest',
+        method: "highest",
         // Chose from the above, based on the lowest ops/sec of all benchmarks:
-        method: 'lowest',
+        method: "lowest",
         // Chose from the above, based on the mean ops/sec of all benchmarks:
-        method: 'mean',
+        method: "mean",
 
         // Change the header title:
-        header: 'ops/sec',
+        header: "ops/sec",
         // Change the header style:
         // (see https://github.com/alexeyraspopov/picocolors/blob/main/types.ts)
-        headerStyle: ['bold'],
+        headerStyle: ["bold"],
         // Change the header alignment: (left | center | right)
-        headerAlignment: 'center',
+        headerAlignment: "center",
 
         // Change the row alignment: (left | center | right)
-        rowAlignment: 'right',
+        rowAlignment: "right",
         // Change the row style:
         // (see https://github.com/alexeyraspopov/picocolors/blob/main/types.ts)
-        rowStyle: ['blue'],
-
+        rowStyle: ["blue"],
     })
 
     .time({
         // Display all rows in nanoseconds, eg. "10ns":
-        method: 'nanoseconds',
+        method: "nanoseconds",
         // Display all rows in microseconds, eg. "10µs":
-        method: 'microseconds',
+        method: "microseconds",
         // Display all rows in milliseconds, eg. "10ms":
-        method: 'milliseconds',
+        method: "milliseconds",
         // Display all rows in seconds, eg. "10s":
-        method: 'seconds',
+        method: "seconds",
 
         // Choose from the above, favoring the shortest possible option for each row:
-        method: 'shortest',
+        method: "shortest",
         // Chose from the above, based on the highest time/op of all benchmarks:
-        method: 'highest',
+        method: "highest",
         // Chose from the above, based on the lowest time/op of all benchmarks:
-        method: 'lowest',
+        method: "lowest",
         // Chose from the above, based on the mean time/op of all benchmarks:
-        method: 'mean',
+        method: "mean",
 
         // Change the header title:
-        header: 'time/op',
+        header: "time/op",
         // Change the header style:
         // (see https://github.com/alexeyraspopov/picocolors/blob/main/types.ts)
-        headerStyle: ['bold'],
+        headerStyle: ["bold"],
         // Change the header alignment: (left | center | right)
-        headerAlignment: 'center',
+        headerAlignment: "center",
 
         // Change the row alignment: (left | center | right)
-        rowAlignment: 'right',
+        rowAlignment: "right",
         // Change the row style:
         // (see https://github.com/alexeyraspopov/picocolors/blob/main/types.ts)
-        rowStyle: ['yellow'],
+        rowStyle: ["yellow"],
     })
 
     .margin({
         // Change the header title:
-        header: 'margin',
+        header: "margin",
         // Change the header style:
         // (see https://github.com/alexeyraspopov/picocolors/blob/main/types.ts)
-        headerStyle: ['bold'],
+        headerStyle: ["bold"],
         // Change the header alignment: (left | center | right)
-        headerAlignment: 'center',
+        headerAlignment: "center",
 
         // Change the row alignment: (left | center | right)
-        rowAlignment: 'center',
+        rowAlignment: "center",
         // Change the row style:
         // (see https://github.com/alexeyraspopov/picocolors/blob/main/types.ts)
-        rowStyle: ['magenta'],
+        rowStyle: ["magenta"],
     })
 
     .samples({
         // Display value as-is:
-        method: 'none',
+        method: "none",
         // Display all rows in thousands, eg. "10K":
-        method: 'thousands',
+        method: "thousands",
         // Display all rows in millions, eg. "10M":
-        method: 'millions',
+        method: "millions",
         // Display all rows in billions, eg. "10B"
-        method: 'billions',
+        method: "billions",
 
         // Choose from the above, favoring the shortest possible option for each row:
-        method: 'shortest',
+        method: "shortest",
         // Chose from the above, based on the highest ops/sec of all benchmarks:
-        method: 'highest',
+        method: "highest",
         // Chose from the above, based on the lowest ops/sec of all benchmarks:
-        method: 'lowest',
+        method: "lowest",
         // Chose from the above, based on the mean ops/sec of all benchmarks:
-        method: 'mean',
+        method: "mean",
 
         // Change the header title:
-        header: 'samples',
+        header: "samples",
         // Change the header style:
         // (see https://github.com/alexeyraspopov/picocolors/blob/main/types.ts)
-        headerStyle: ['bold'],
+        headerStyle: ["bold"],
         // Change the header alignment: (left | center | right)
-        headerAlignment: 'center',
+        headerAlignment: "center",
 
         // Change the row alignment: (left | center | right)
-        rowAlignment: 'right',
+        rowAlignment: "right",
         // Change the row style:
         // (see https://github.com/alexeyraspopov/picocolors/blob/main/types.ts)
-        rowStyle: ['magenta'],
-    })
+        rowStyle: ["magenta"],
+    });
 ```
 
 ## Adding Custom Columns
@@ -291,11 +289,11 @@ tinybenchPrinter
 > You can also use this to overwrite the default columns!
 
 ```ts
-import { tinybenchPrinter } from '@monstermann/tinybench-pretty-printer'
+import { tinybenchPrinter } from "@monstermann/tinybench-pretty-printer";
 
 tinybenchPrinter
 
-    .column('my-custom-column', {
+    .column("my-custom-column", {
         // Return the string that should be displayed in each row:
         content({
             task,
@@ -307,46 +305,46 @@ tinybenchPrinter
             formatDuration,
             formatCount,
         }) {
-            return String(task.result.hz)
+            return String(task.result.hz);
         },
 
         // Set the header title:
-        header: 'ops/sec',
+        header: "ops/sec",
         // Set the header style:
         // (see https://github.com/alexeyraspopov/picocolors/blob/main/types.ts)
-        headerStyle: ['bold'],
+        headerStyle: ["bold"],
         // Set the header alignment: (left | center | right)
-        headerAlignment: 'center',
+        headerAlignment: "center",
         // Set the row alignment: (left | center | right)
-        rowAlignment: 'right',
+        rowAlignment: "right",
         // Set the row style:
         // (see https://github.com/alexeyraspopov/picocolors/blob/main/types.ts)
-        rowStyle: ['blue'],
+        rowStyle: ["blue"],
     })
 
     // After you set up your columns, you need to define which columns to display,
     // in what order:
-    .order(['name', 'summary', 'my-custom-column'])
+    .order(["name", "summary", "my-custom-column"]);
 ```
 
 ## Rendering Options
 
 ```ts
-import { tinybenchPrinter } from '@monstermann/tinybench-pretty-printer'
+import { tinybenchPrinter } from "@monstermann/tinybench-pretty-printer";
 
 tinybenchPrinter
 
     // Change the order of the columns and/or drop unwanted ones:
-    .order(['name', 'ops'])
+    .order(["name", "ops"])
 
     // Change the sorting method used:
     .sort(false)
-    .sort('asc')
-    .sort('desc')
-    .sort(tasks => tasks)
+    .sort("asc")
+    .sort("desc")
+    .sort((tasks) => tasks)
 
     // Change the locales passed to Number.toLocaleString:
-    .locales('en-US')
+    .locales("en-US")
 
     // Change the NodeJS.WriteStream that is used to detect the maximum available width:
     .stdout(process.stdout)
@@ -368,27 +366,27 @@ tinybenchPrinter
 
     // Change the style of all borders:
     // (see https://github.com/alexeyraspopov/picocolors/blob/main/types.ts)
-    .borderStyle(['dim'])
+    .borderStyle(["dim"])
 
     // Customize the borders:
     .borders({
-        top: '─',
-        topLeft: '┌',
-        topRight: '┐',
-        topDivider: '┬',
+        top: "─",
+        topLeft: "┌",
+        topRight: "┐",
+        topDivider: "┬",
 
-        bottom: '─',
-        bottomLeft: '└',
-        bottomRight: '┘',
-        bottomDivider: '┴',
+        bottom: "─",
+        bottomLeft: "└",
+        bottomRight: "┘",
+        bottomDivider: "┴",
 
-        left: '│',
-        right: '│',
-        divider: '│',
+        left: "│",
+        right: "│",
+        divider: "│",
 
-        separator: '─',
-        separatorLeft: '├',
-        separatorRight: '┤',
-        separatorDivider: '┼',
-    })
+        separator: "─",
+        separatorLeft: "├",
+        separatorRight: "┤",
+        separatorDivider: "┼",
+    });
 ```

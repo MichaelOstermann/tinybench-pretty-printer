@@ -1,9 +1,7 @@
 {
-
     "name": "@monstermann/tinybench-pretty-printer",
     "type": "module",
     "version": "0.2.0",
-    "packageManager": "pnpm@9.1.1",
     "description": "Customizable pretty-printer for tinybench benchmarks",
     "author": "Michael Ostermann <michaelostermann@me.com>",
     "license": "MIT",
@@ -41,44 +39,35 @@
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
-            "import": "./dist/index.js",
+            "import": "./dist/index.mjs",
             "require": "./dist/index.cjs"
         }
     },
-    "main": "./dist/index.js",
-    "module": "./dist/index.js",
-    "types": "./dist/index.d.ts",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.mts",
     "files": [
         "./dist/**"
     ],
     "scripts": {
-        "build": "tsup",
-        "prepublishOnly": "tsup",
-        "lint": "eslint .",
-        "typecheck": "tsc --noEmit",
-        "test": "tsx --test"
+        "checks": "bun run eslint && bun run tsc && bun test",
+        "bundles": "tsdown",
+        "release": "bun run checks && bun run bundles && bun run bumpp -r --no-push && bun publish --access public"
     },
     "peerDependencies": {
-        "tinybench": "^5.0.0"
+        "tinybench": "^6.0.0"
     },
     "dependencies": {
         "@monstermann/tables": "^0.0.0",
         "picocolors": "^1.0.1"
     },
     "devDependencies": {
-        "@antfu/eslint-config": "^2.27.3",
+        "@monstermann/eslint-config": "^0.5.0",
         "@sindresorhus/tsconfig": "^5.1.1",
-        "@types/node": "^20.19.11",
-        "eslint": "^9.1.1",
-        "tinybench": "^5.0.0",
-        "tsup": "^8.0.2",
-        "tsx": "^4.11.0",
+        "@types/bun": "^1.3.3",
+        "bumpp": "^10.2.0",
+        "tinybench": "^6.0.0",
+        "tsdown": "0.16.8",
         "typescript": "^5.4.5"
-    },
-    "tsup": {
-        "clean": true,
-        "dts": true,
-        "entry": ["./src/index.ts"],
-        "format": ["esm", "cjs"]
     }
 }

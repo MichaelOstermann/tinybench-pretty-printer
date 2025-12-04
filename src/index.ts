@@ -1,2 +1,2 @@
-export * from './types.js'
-export * from './tinybenchPrinter.js'
+export * from "./tinybenchPrinter.js"
+export * from "./types.js"
