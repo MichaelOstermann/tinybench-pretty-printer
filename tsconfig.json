@@ -1,7 +1,5 @@
 {
-    "extends": "@sindresorhus/tsconfig",
-    "compilerOptions": {
-        "noEmit": true
-    },
+    "extends": "@monstermann/tsconfig",
+    "compilerOptions": {},
     "exclude": ["packages/*/dist/**"]
 }
